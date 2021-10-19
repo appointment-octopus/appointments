@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 const database = require('../database');
 
-const Patient = database.define('PATIENT', {
-  id: {
+const User = database.define('USERS', {
+  idUser: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
@@ -28,7 +28,11 @@ const Patient = database.define('PATIENT', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   profilePicture: Sequelize.BLOB,
 });
 
-module.exports = Patient;
+module.exports = User;

@@ -1,21 +1,21 @@
 const Sequelize = require('sequelize');
 const database = require('../database');
 const PossibleHours = require('./possibleHours');
-const Patient = require('./patient');
+const User = require('./user');
 
 const Appointments = database.define('APPOINTMENTS', {
   fk_idPossibleHours: {
     type: Sequelize.INTEGER,
     references: {
       model: PossibleHours,
-      key: 'id',
+      key: 'idPossibleHours',
     },
   },
-  fk_idPatient: {
+  fk_idUser: {
     type: Sequelize.INTEGER,
     references: {
-      model: Patient,
-      key: 'id',
+      model: User,
+      key: 'idUser',
     },
   },
 });

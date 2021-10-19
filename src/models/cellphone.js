@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 const database = require('../database');
-const Patient = require('./patient');
+const User = require('./user');
 
 const Cellphone = database.define('cellphone', {
-  id: {
+  idCellphone: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
@@ -13,11 +13,11 @@ const Cellphone = database.define('cellphone', {
     type: Sequelize.STRING(11),
     allowNull: false,
   },
-  fk_idPatient: {
+  fk_idUser: {
     type: Sequelize.INTEGER,
     references: {
-      model: Patient,
-      key: 'id',
+      model: User,
+      key: 'idUser',
     },
   },
 });

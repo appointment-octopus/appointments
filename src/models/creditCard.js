@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const database = require('../database');
-const Patient = require('./patient');
+const User = require('./user');
 
 const CreditCard = database.define('CREDIT_CARD', {
   id: {
@@ -29,11 +29,11 @@ const CreditCard = database.define('CREDIT_CARD', {
     type: Sequelize.INTEGER.TINYINT,
     allowNull: false,
   },
-  fk_idPatient: {
+  fk_idUser: {
     type: Sequelize.INTEGER,
     references: {
-      model: Patient,
-      key: 'id',
+      model: User,
+      key: 'idUser',
     },
   },
 });

@@ -21,7 +21,7 @@ const PossibleHours = database.define('POSSIBLE_HOURS', {
     type: Sequelize.INTEGER,
     references: {
       model: PossibleDays,
-      key: 'id',
+      key: 'idPossibleDays',
     },
   },
 });

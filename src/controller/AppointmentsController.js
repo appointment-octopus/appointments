@@ -7,7 +7,7 @@ class AppointmentController {
     try {
       const appointment = await Appointments.create({
         fk_idPossibleHours: req.params.hour_id,
-        fk_idPatient: req.params.user_id,
+        fk_idUser: req.params.user_id,
       });
 
       return res.send(appointment);
@@ -23,7 +23,7 @@ class AppointmentController {
       const appointment = await Appointments.findOne({
         where: {
           fk_idPossibleHours: req.params.hour_id,
-          fk_idPatient: req.params.user_id,
+          fk_idUser: req.params.user_id,
         },
       });
       const newDate = req.body;
@@ -49,7 +49,7 @@ class AppointmentController {
       const appointment = await Appointments.findOne({
         where: {
           fk_idPossibleHours: req.params.hour_id,
-          fk_idPatient: req.params.user_id,
+          fk_idUser: req.params.user_id,
         },
       });
       appointment.destroy();
@@ -76,7 +76,7 @@ class AppointmentController {
           fk_idPossibleHours: {
             [Op.in]: allHoursBefore,
           },
-          fk_idPatient: req.params.user_id,
+          fk_idUser: req.params.user_id,
         },
       });
       return res.send(appointments);
@@ -101,7 +101,7 @@ class AppointmentController {
           fk_idPossibleHours: {
             [Op.in]: allHoursAfter,
           },
-          fk_idPatient: req.params.user_id,
+          fk_idUser: req.params.user_id,
         },
       });
       return res.send(appointments);
@@ -117,7 +117,7 @@ class AppointmentController {
       const appointment = await Appointments.findOne({
         where: {
           fk_idPossibleHours: req.params.hour_id,
-          fk_idPatient: req.params.user_id,
+          fk_idUser: req.params.user_id,
         },
       });
 
