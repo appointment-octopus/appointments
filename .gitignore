@@ -1,0 +1,6 @@
+/node_modules
+/coverage
+test-report.xml
+yarn-error.log
+.env
+src/lib/private.key
