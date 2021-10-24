@@ -16,8 +16,8 @@ class App {
   static database() {
     (async () => {
       try {
-        const resultado = await db.sync();
-        console.log(resultado);
+        await db.authenticate();
+        console.log('Connection has been established successfully.');
       } catch (error) {
         console.log(error);
       }

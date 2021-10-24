@@ -1,13 +1,15 @@
-FROM node:14.10.1-alpine3.10
+FROM node:latest
 
-WORKDIR /app
+WORKDIR /appointments
 
-COPY ./package.json .
+COPY ./package.json ./yarn.lock ./
 
-RUN npm install
+RUN yarn install
 
 COPY . .
 
-EXPOSE 3000
+RUN ls /appointments
 
-ENTRYPOINT [ "npm", "run", "dev" ]
+RUN ls /appointments/__tests__/
+
+CMD sleep 30 && yarn jest --detectOpenHandles

@@ -1,14 +1,14 @@
 const Sequelize = require('sequelize');
 const database = require('../database');
 
-const User = database.define('USERS', {
+const User = database.define('users', {
   idUser: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,
   },
-  cpf: {
+  CPF: {
     type: Sequelize.STRING(11),
     allowNull: false,
   },

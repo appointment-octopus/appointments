@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 const database = require('../database');
 
-const PossibleDays = database.define('POSSIBLE_DAYS', {
-  id: {
+const PossibleDays = database.define('possible_days', {
+  idday: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,

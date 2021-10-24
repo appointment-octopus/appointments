@@ -2,8 +2,8 @@ const Sequelize = require('sequelize');
 const database = require('../database');
 const User = require('./user');
 
-const CreditCard = database.define('CREDIT_CARD', {
-  id: {
+const CreditCard = database.define('credit_card', {
+  idCreditCard: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
