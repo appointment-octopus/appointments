@@ -4,18 +4,20 @@ const PossibleHours = require('./possibleHours');
 const User = require('./user');
 
 const Appointments = database.define('appointments', {
-  fk_idHour: {
+  fk_idhour: {
     type: Sequelize.INTEGER,
+    primaryKey: true,
     references: {
       model: PossibleHours,
-      key: 'idHour',
+      key: 'idhour',
     },
   },
-  fk_idUser: {
+  fk_iduser: {
     type: Sequelize.INTEGER,
+    primaryKey: true,
     references: {
       model: User,
-      key: 'idUser',
+      key: 'iduser',
     },
   },
 });

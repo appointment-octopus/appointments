@@ -3,7 +3,7 @@ const database = require('../database');
 const PossibleDays = require('./possibleDays');
 
 const PossibleHours = database.define('possible_hours', {
-  idHour: {
+  idhour: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
@@ -17,11 +17,11 @@ const PossibleHours = database.define('possible_hours', {
     type: Sequelize.BOOLEAN,
     allowNull: false,
   },
-  fk_idDay: {
+  fk_idday: {
     type: Sequelize.INTEGER,
     references: {
       model: PossibleDays,
-      key: 'idDay',
+      key: 'idday',
     },
   },
 });

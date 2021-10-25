@@ -6,8 +6,8 @@ class AppointmentController {
   static async createAppointment(req, res) {
     try {
       const appointment = await Appointments.create({
-        fk_idPossibleHours: req.params.hour_id,
-        fk_idUser: req.params.user_id,
+        fk_idhour: req.params.hour_id,
+        fk_iduser: req.params.user_id,
       });
 
       return res.send(appointment);
@@ -22,8 +22,8 @@ class AppointmentController {
     try {
       const appointment = await Appointments.findOne({
         where: {
-          fk_idPossibleHours: req.params.hour_id,
-          fk_idUser: req.params.user_id,
+          fk_idhour: req.params.hour_id,
+          fk_iduser: req.params.user_id,
         },
       });
       const newDate = req.body;
@@ -48,8 +48,8 @@ class AppointmentController {
     try {
       const appointment = await Appointments.findOne({
         where: {
-          fk_idPossibleHours: req.params.hour_id,
-          fk_idUser: req.params.user_id,
+          fk_idhour: req.params.hour_id,
+          fk_iduser: req.params.user_id,
         },
       });
       appointment.destroy();
@@ -73,10 +73,10 @@ class AppointmentController {
       });
       const appointments = await Appointments.findAll({
         where: {
-          fk_idPossibleHours: {
+          fk_idhour: {
             [Op.in]: allHoursBefore,
           },
-          fk_idUser: req.params.user_id,
+          fk_iduser: req.params.user_id,
         },
       });
       return res.send(appointments);
@@ -98,10 +98,10 @@ class AppointmentController {
       });
       const appointments = await Appointments.findAll({
         where: {
-          fk_idPossibleHours: {
+          fk_idhour: {
             [Op.in]: allHoursAfter,
           },
-          fk_idUser: req.params.user_id,
+          fk_iduser: req.params.user_id,
         },
       });
       return res.send(appointments);
@@ -116,8 +116,8 @@ class AppointmentController {
     try {
       const appointment = await Appointments.findOne({
         where: {
-          fk_idPossibleHours: req.params.hour_id,
-          fk_idUser: req.params.user_id,
+          fk_idhour: req.params.hour_id,
+          fk_iduser: req.params.user_id,
         },
       });
 

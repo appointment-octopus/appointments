@@ -18,7 +18,7 @@ class DaysController {
     try {
       const hours = await Hours.findAll({
         where: {
-          fk_idPossibleDays: req.params.day_id,
+          fk_idday: req.params.day_id,
         },
       });
 

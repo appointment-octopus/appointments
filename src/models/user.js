@@ -2,13 +2,13 @@ const Sequelize = require('sequelize');
 const database = require('../database');
 
 const User = database.define('users', {
-  idUser: {
+  iduser: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,
   },
-  CPF: {
+  cpf: {
     type: Sequelize.STRING(11),
     allowNull: false,
   },
@@ -16,7 +16,7 @@ const User = database.define('users', {
     type: Sequelize.STRING(15),
     allowNull: false,
   },
-  dateOfBirth: {
+  dateofbirth: {
     type: Sequelize.DATEONLY,
     allowNull: false,
   },
@@ -24,7 +24,7 @@ const User = database.define('users', {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  fullName: {
+  fullname: {
     type: Sequelize.STRING,
     allowNull: false,
   },

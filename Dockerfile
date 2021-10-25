@@ -12,4 +12,4 @@ RUN ls /appointments
 
 RUN ls /appointments/__tests__/
 
-CMD sleep 30 && yarn jest --detectOpenHandles
+CMD sleep 30 && yarn test

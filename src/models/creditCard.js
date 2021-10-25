@@ -3,37 +3,37 @@ const database = require('../database');
 const User = require('./user');
 
 const CreditCard = database.define('credit_card', {
-  idCreditCard: {
+  idcreditcard: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,
   },
-  cardNumber: {
+  cardnumber: {
     type: Sequelize.STRING(20),
     allowNull: false,
   },
-  cardholderName: {
+  cardholdername: {
     type: Sequelize.STRING(50),
     allowNull: false,
   },
-  CVV: {
+  cvv: {
     type: Sequelize.INTEGER.SMALLINT,
     allowNull: false,
   },
-  expirationYear: {
+  expirationyear: {
     type: Sequelize.INTEGER.SMALLINT,
     allowNull: false,
   },
-  expirationMonth: {
+  expirationmonth: {
     type: Sequelize.INTEGER.TINYINT,
     allowNull: false,
   },
-  fk_idUser: {
+  fk_iduser: {
     type: Sequelize.INTEGER,
     references: {
       model: User,
-      key: 'idUser',
+      key: 'iduser',
     },
   },
 });
