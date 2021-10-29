@@ -65,16 +65,18 @@ class AppointmentController {
   static async getPastAppointments(req, res) {
     try {
       const allHoursBefore = await Hours.findAll({
+        attributes: ['idhour'],
         where: {
           time: {
             [Op.lt]: new Date(),
           },
         },
       });
+
       const appointments = await Appointments.findAll({
         where: {
           fk_idhour: {
-            [Op.in]: allHoursBefore,
+            [Op.in]: allHoursBefore.map((u) => u.get('idhour')),
           },
           fk_iduser: req.params.user_id,
         },
@@ -90,6 +92,7 @@ class AppointmentController {
   static async getNextAppointments(req, res) {
     try {
       const allHoursAfter = await Hours.findAll({
+        attributes: ['idhour'],
         where: {
           time: {
             [Op.gte]: new Date(),
@@ -99,7 +102,7 @@ class AppointmentController {
       const appointments = await Appointments.findAll({
         where: {
           fk_idhour: {
-            [Op.in]: allHoursAfter,
+            [Op.in]: allHoursAfter.map((u) => u.get('idhour')),
           },
           fk_iduser: req.params.user_id,
         },

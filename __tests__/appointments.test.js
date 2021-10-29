@@ -22,9 +22,6 @@ describe('Days', () => {
     })
       .then((response) => {
         token = response.data.token;
-        console.log('@@@@@@@@@@@@@\n');
-        console.log(token);
-        console.log('@@@@@@@@@@@@@\n');
       })
       .catch((error) => console.error(`${error}`));
 
@@ -40,12 +37,39 @@ describe('Days', () => {
     expect(response.status).toBe(200);
   });
 
-  /* 
-  it('fetch hours in specific day', async () => {
-    const response = await request.get('/days/1');
+  it('get appointment', async () => {
+    const response = await request
+      .get('/appointments/4')
+      .set('access_token', `${token}`);
     console.log(response.body);
 
     expect(response.status).toBe(200);
   });
-  */
+
+  it('delete appointment', async () => {
+    const response = await request
+      .delete('/appointments/delete/4')
+      .set('access_token', `${token}`);
+    console.log(response.body);
+
+    expect(response.status).toBe(200);
+  });
+
+  it('get past appointments', async () => {
+    const response = await request
+      .get('/appointments/past')
+      .set('access_token', `${token}`);
+    console.log(response.body);
+
+    expect(response.status).toBe(200);
+  });
+
+  it('get next appointments', async () => {
+    const response = await request
+      .get('/appointments/next')
+      .set('access_token', `${token}`);
+    console.log(response.body);
+
+    expect(response.status).toBe(200);
+  });
 });
